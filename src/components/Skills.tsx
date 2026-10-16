@@ -126,11 +126,9 @@ export const Skills: React.FC = () => {
                         <span className="text-xs font-mono text-slate-200 group-hover:text-cyan-300 transition-colors">
                           {skill.name}
                         </span>
-                        {skill.level && (
-                          <span className="text-[9px] font-mono uppercase px-1 py-0.2 rounded bg-cyan-950/60 text-cyan-400 ml-1">
+                          <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-cyan-950/70 text-cyan-400 ml-1 border border-cyan-800/40">
                             {skill.level}
                           </span>
-                        )}
                       </div>
                     ))}
                   </div>

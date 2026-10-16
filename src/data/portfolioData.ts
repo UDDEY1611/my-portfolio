@@ -8,7 +8,8 @@ export interface Project {
   secondaryImage?: string;
   technologies: string[];
   keyFeatures: string[];
-  githubUrl: string;
+  githubUrl?: string;
+  isRepoConfigured: boolean;
   liveUrl?: string;
   featured: boolean;
 }
@@ -16,7 +17,7 @@ export interface Project {
 export interface SkillCategory {
   title: string;
   description: string;
-  skills: { name: string; level?: string; icon?: string }[];
+  skills: { name: string; level: string }[];
 }
 
 export interface EducationItem {
@@ -42,27 +43,28 @@ export const PORTFOLIO_DATA = {
     shortName: "Uday",
     wordmark: "UDAY KUMAR",
     title: "Developer & Creative Technologist",
-    positioning: "Full-Stack Engineer • AI Agent Systems • Interactive 3D Web",
+    positioning: "Full-Stack Development • Applied AI Systems • Modern Web Experiences",
     headline: "I Build Digital Experiences.",
     subHeadline: "Developer. Creative Thinker. Problem Solver.",
     aboutHeading: "A Little About Me",
     bio: "I'm Uday Kumar, a developer interested in building useful, interactive, and visually engaging digital experiences. I enjoy turning ideas into working projects and exploring modern web technologies.",
-    extendedBio: "Based in Andhra Pradesh, I focus on building robust software architectures—spanning enterprise Java Spring Boot backends, intelligent AI agent workflows with RAG, and immersive interactive web experiences using React, Three.js, and modern graphics pipelines.",
+    extendedBio: "Currently pursuing B.Tech in Computer Science & Engineering at Vaagdevi Institute of Technology and Science, Proddatur. My practical work centers on enterprise Java Spring Boot services, applied AI pipelines with RAG & vector retrieval, and interactive user interfaces using modern web technologies.",
     photo: "/assets/uday-kumar-profile.png",
     photoFallback: "/assets/uday-kumar-profile.jpg",
     email: "uddeykoamer1611@gmail.com",
     github: "https://github.com/udaykumar1611",
     linkedin: "https://www.linkedin.com/in/uday-kumar",
     location: "Andhra Pradesh, India",
-    availability: "Available for internships, full-time roles & innovative collaborations",
+    availability: "Available for internships, technical roles & creative engineering projects",
     resumeUrl: "#resume-modal",
   },
 
+  // Grounded, factual profile indicators
   stats: [
-    { label: "Core Projects Built", value: "4+" },
-    { label: "Tech Stack Mastery", value: "15+" },
-    { label: "System Domains", value: "AI • POS • Web" },
-    { label: "Dedication", value: "100%" },
+    { label: "Degree Program", value: "B.Tech CSE" },
+    { label: "Core Projects", value: "4 Systems" },
+    { label: "Focus Domains", value: "Full Stack & AI" },
+    { label: "Academic Institution", value: "VITS Proddatur" },
   ],
 
   projects: [
@@ -71,36 +73,38 @@ export const PORTFOLIO_DATA = {
       title: "PersonaX — AI Digital Twin Platform",
       subtitle: "Your Life + Your Data + AI = Your Digital Twin",
       category: "Full Stack & AI Systems",
-      description: "A comprehensive AI Digital Twin platform designed to mirror personal knowledge, professional accomplishments, and communication voice. Engineered with Spring Boot, React, Vector DB for RAG, real-time Server-Sent Events (SSE), and strict guardrails.",
+      description: "An AI Digital Twin platform designed to mirror personal knowledge, professional background, and conversational voice. Architected with Spring Boot, React, Vector DB for RAG, real-time Server-Sent Events (SSE), and safety guardrails.",
       image: "/assets/projects/personax_infographic.png",
       technologies: ["Java", "Spring Boot", "React.js", "PostgreSQL", "RAG / Vector DB", "OpenAI / Gemini", "SSE & WebSockets", "Docker"],
       keyFeatures: [
-        "Dual operational modes: Presentation Mode for recruiters and Companion Mode for personal mentoring",
+        "Dual operational modes: Presentation Mode for recruiters and Companion Mode for personal learning",
         "Dynamic persona engine configuring tone, verbosity, formality, and humor levels",
-        "RAG knowledge retrieval grounding conversations in verified user documents",
-        "Strict security guardrails preventing hallucination and protecting private credentials",
-        "Real-time token streaming using Server-Sent Events (SSE) and responsive UI"
+        "RAG knowledge retrieval grounding conversations in user-provided documents",
+        "Security guardrails protecting private credentials and preventing hallucination",
+        "Real-time token streaming using Server-Sent Events (SSE) and reactive UI"
       ],
       githubUrl: "https://github.com/udaykumar1611/personax-ai-digital-twin",
+      isRepoConfigured: true,
       liveUrl: undefined,
       featured: true,
     },
     {
       id: "bsds",
       title: "BSDS — Business Semantic Data System",
-      subtitle: "Toward AI Agent-Assisted Business Analytics & Semantic Modeling",
+      subtitle: "Toward AI Agent-Assisted Analytics & Semantic Modeling",
       category: "Data Systems & AI Agents",
-      description: "An institutional research & engineering project on semantic-centric data architecture. Unifies fragmented relational databases into a business semantic layer, using AI agents to assist non-technical stakeholders in natural-language data extraction.",
+      description: "An institutional research & engineering project on semantic-centric data architecture presented at VITS. Unifies fragmented relational databases into a business semantic layer, using AI agents to assist non-technical stakeholders in natural-language data extraction.",
       image: "/assets/projects/bsds_semantic_bi.png",
       secondaryImage: "/assets/projects/bsds_architecture.png",
       technologies: ["Python", "Pandas", "SQL", "Knowledge Graphs", "LLM APIs", "FastAPI", "Semantic Modeling"],
       keyFeatures: [
         "Business Semantic Layer connecting Customers, Products, Orders, and Subscriptions",
-        "Autonomous AI agent natural language querying to democratize analytics",
+        "AI agent natural language querying to simplify data retrieval",
         "Knowledge graph mapping eliminating redundant pipeline development",
-        "Exploratory vs production query workflows with built-in data governance"
+        "Role-based exploratory vs production query workflows"
       ],
       githubUrl: "https://github.com/udaykumar1611/business-semantic-data-system",
+      isRepoConfigured: true,
       liveUrl: undefined,
       featured: true,
     },
@@ -109,17 +113,18 @@ export const PORTFOLIO_DATA = {
       title: "Snack City POS — Commercial Billing System",
       subtitle: "Fast-Food Point-of-Sale with ESC/POS Thermal Printing Server",
       category: "Full Stack & Commercial Software",
-      description: "A real-world point-of-sale and kitchen order ticketing application deployed for fast-food operations ('Snack City'). Includes high-speed touchscreen checkout, menu customization, local ESC/POS thermal receipt printing, and daily reconciliation.",
+      description: "A practical point-of-sale and kitchen order ticketing application developed for fast-food operations ('Snack City'). Features fast touchscreen checkout, menu customization, local ESC/POS thermal receipt printing, and daily reconciliation.",
       image: "/assets/projects/snack_city_pos.jpg",
       secondaryImage: "/assets/projects/snack_city_logo.png",
       technologies: ["Python", "FastAPI", "SQLite / SQLAlchemy", "React Client", "ESC/POS Thermal Printing", "Tailwind CSS"],
       keyFeatures: [
-        "Lightning-fast cashier order entry optimized for busy peak hours",
-        "Automated thermal receipt and Kitchen Order Ticket (KOT) printing daemon",
-        "Dynamic menu pricing, combo packs, and inventory status management",
-        "Automated daily sales tallying and scheduled database backups"
+        "Cashier order entry interface designed for quick customer turnover",
+        "Direct thermal receipt and Kitchen Order Ticket (KOT) printing server",
+        "Dynamic menu pricing, combo packs, and inventory availability toggle",
+        "Daily sales reconciliation and database backup scripts"
       ],
       githubUrl: "https://github.com/udaykumar1611/snack-city-billing-system",
+      isRepoConfigured: true,
       liveUrl: undefined,
       featured: true,
     },
@@ -128,88 +133,90 @@ export const PORTFOLIO_DATA = {
       title: "AI Resume Shortlister & Talent Screener",
       subtitle: "Automated Resume Parsing & Skill Extraction Engine",
       category: "Machine Learning & NLP",
-      description: "An intelligent talent screening tool that ingests resumes in bulk, extracts candidate competencies, and scores candidates against job requisitions using natural language processing and semantic similarity.",
+      description: "A talent screening tool that ingests resumes in bulk, extracts candidate competencies, and scores candidates against job requisitions using natural language processing and semantic similarity.",
       image: "/assets/projects/personax_infographic.png",
       technologies: ["Python", "Flask", "NLP / Spacy", "Scikit-Learn", "Pandas", "HTML5 / CSS3"],
       keyFeatures: [
         "Batch resume processing across PDF, DOCX, and text formats",
-        "Automated competency and keyword extraction for technical skill sets",
+        "Automated keyword and competency extraction for technical skill sets",
         "Cosine similarity matching against job descriptions with CSV candidate rankings"
       ],
       githubUrl: "https://github.com/udaykumar1611/ai-resume-shortlister",
+      isRepoConfigured: true,
       liveUrl: undefined,
       featured: false,
     }
   ] as Project[],
 
+  // Honest, verified skills without exaggerated mastery claims
   skills: [
     {
       title: "Programming Languages",
-      description: "Core languages used for backend logic, algorithms, and applications",
+      description: "Core languages used in coursework, backend systems, and projects",
       skills: [
-        { name: "Java", level: "Advanced" },
-        { name: "Python", level: "Advanced" },
-        { name: "TypeScript", level: "Proficient" },
-        { name: "JavaScript (ES6+)", level: "Advanced" },
+        { name: "Java", level: "Proficient" },
+        { name: "Python", level: "Proficient" },
+        { name: "JavaScript (ES6+)", level: "Proficient" },
+        { name: "TypeScript", level: "Working Knowledge" },
         { name: "SQL", level: "Proficient" },
-        { name: "HTML5 & Modern CSS", level: "Advanced" }
+        { name: "HTML5 & Modern CSS", level: "Proficient" }
       ]
     },
     {
       title: "Frontend & Creative Tech",
-      description: "Interactive visual experiences, responsive interfaces, and 3D graphics",
+      description: "Responsive web interfaces, interactive components, and 3D graphics",
       skills: [
-        { name: "React.js", level: "Advanced" },
-        { name: "Three.js / WebGL", level: "Intermediate" },
-        { name: "React Three Fiber & Drei", level: "Intermediate" },
-        { name: "GSAP & ScrollTrigger", level: "Proficient" },
-        { name: "Tailwind CSS", level: "Advanced" },
-        { name: "Vite & Modern Tooling", level: "Advanced" }
+        { name: "React.js", level: "Proficient" },
+        { name: "Tailwind CSS", level: "Proficient" },
+        { name: "Three.js / WebGL", level: "Working Knowledge" },
+        { name: "React Three Fiber & Drei", level: "Working Knowledge" },
+        { name: "GSAP & ScrollTrigger", level: "Working Knowledge" },
+        { name: "Vite", level: "Proficient" }
       ]
     },
     {
       title: "Backend & Systems",
-      description: "Server architecture, microservices, and real-time streaming",
+      description: "Server architecture, RESTful services, and real-time streaming",
       skills: [
-        { name: "Spring Boot", level: "Advanced" },
+        { name: "Spring Boot", level: "Proficient" },
         { name: "FastAPI", level: "Proficient" },
-        { name: "Node.js & Express", level: "Proficient" },
-        { name: "Flask", level: "Intermediate" },
-        { name: "RESTful API Design", level: "Advanced" },
-        { name: "WebSockets & SSE", level: "Proficient" }
+        { name: "RESTful API Design", level: "Proficient" },
+        { name: "WebSockets & SSE", level: "Practical Experience" },
+        { name: "Node.js & Express", level: "Working Knowledge" },
+        { name: "Flask", level: "Working Knowledge" }
       ]
     },
     {
       title: "Databases & Storage",
-      description: "Relational data modeling, query optimization, and vector search",
+      description: "Relational modeling, schema migrations, and vector stores",
       skills: [
-        { name: "PostgreSQL", level: "Advanced" },
-        { name: "SQLite", level: "Advanced" },
-        { name: "Vector Databases (RAG)", level: "Intermediate" },
-        { name: "Hibernate / JPA", level: "Proficient" },
-        { name: "SQLAlchemy", level: "Proficient" }
+        { name: "PostgreSQL", level: "Proficient" },
+        { name: "SQLite", level: "Proficient" },
+        { name: "Vector Databases (RAG)", level: "Practical Experience" },
+        { name: "Hibernate / JPA", level: "Working Knowledge" },
+        { name: "SQLAlchemy", level: "Working Knowledge" }
       ]
     },
     {
       title: "AI & Modern Architectures",
-      description: "Generative AI systems, agents, and semantic layers",
+      description: "Applied generative AI, RAG knowledge retrieval, and agent flows",
       skills: [
-        { name: "RAG Architecture", level: "Proficient" },
-        { name: "AI Agent Workflows", level: "Proficient" },
-        { name: "LLM APIs (OpenAI / Gemini)", level: "Advanced" },
-        { name: "Prompt Engineering", level: "Advanced" },
-        { name: "Semantic Data Modeling", level: "Proficient" }
+        { name: "RAG Architecture", level: "Practical Experience" },
+        { name: "LLM APIs (OpenAI / Gemini)", level: "Proficient" },
+        { name: "Prompt Engineering", level: "Proficient" },
+        { name: "AI Agent Workflows", level: "Practical Experience" },
+        { name: "Semantic Data Modeling", level: "Practical Experience" }
       ]
     },
     {
-      title: "DevOps & Developer Tools",
-      description: "Version control, containerization, and build pipelines",
+      title: "Developer Tools & DevOps",
+      description: "Version control, build environments, and developer workflows",
       skills: [
-        { name: "Git & GitHub", level: "Advanced" },
-        { name: "Docker", level: "Intermediate" },
-        { name: "Postman API Testing", level: "Advanced" },
-        { name: "Maven & Build Tools", level: "Proficient" },
-        { name: "Linux / Windows Dev", level: "Advanced" }
+        { name: "Git & GitHub", level: "Proficient" },
+        { name: "Docker", level: "Working Knowledge" },
+        { name: "Postman API Testing", level: "Proficient" },
+        { name: "Maven", level: "Working Knowledge" },
+        { name: "VS Code & Terminal", level: "Proficient" }
       ]
     }
   ] as SkillCategory[],
@@ -222,7 +229,7 @@ export const PORTFOLIO_DATA = {
       period: "2023 – Present",
       location: "Proddatur, Andhra Pradesh",
       details: [
-        "Specializing in Computer Science & Engineering with coursework in Data Structures, Database Systems, Object-Oriented Software Design, and AI.",
+        "Specializing in Computer Science & Engineering with core coursework in Data Structures, Database Systems, Object-Oriented Software Design, and Operating Systems.",
         "Author & Presenter of Capstone Review: Toward Data Systems That Are Business Semantic-Centric and AI Agents-Assisted (BSDS).",
         "Lead Developer on PersonaX AI Digital Twin research platform."
       ]
@@ -234,7 +241,7 @@ export const PORTFOLIO_DATA = {
       year: "2026",
       title: "PersonaX AI Digital Twin Platform",
       role: "System Architect & Lead Developer",
-      description: "Designed and engineered the end-to-end PersonaX architecture with Spring Boot, Vector DB, RAG retrieval, and real-time SSE streaming.",
+      description: "Engineered the end-to-end PersonaX architecture with Spring Boot, Vector DB, RAG retrieval, and real-time SSE streaming.",
       tags: ["Spring Boot", "RAG", "AI Agents", "React"]
     },
     {

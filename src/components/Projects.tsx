@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { PORTFOLIO_DATA, Project } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
-import { ExternalLink, Github, Eye, Sparkles, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Github, Eye, Sparkles, ArrowUpRight, FolderGit2 } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -68,7 +68,7 @@ export const Projects: React.FC = () => {
               Engineered Projects.
             </h2>
             <p className="text-sm sm:text-base text-slate-400 font-light max-w-xl">
-              Authentic systems built for real-world impact—spanning autonomous AI agents, semantic enterprise architectures, and commercial point-of-sale platforms.
+              Authentic software systems built for real-world utility—spanning enterprise Spring Boot backends, business semantic data architectures, and commercial POS platforms.
             </p>
           </div>
 
@@ -105,7 +105,7 @@ export const Projects: React.FC = () => {
                 >
                   <img
                     src={project.image}
-                    alt={`${project.title} screenshot`}
+                    alt={`${project.title} screenshot visual`}
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
@@ -113,7 +113,7 @@ export const Projects: React.FC = () => {
                   {/* Subtle Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#090b14] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
 
-                  {/* Badge & Quick View Pill */}
+                  {/* Category Badge & Inspect Icon */}
                   <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-slate-950/80 backdrop-blur-md border border-cyan-500/30 text-[10px] font-mono text-cyan-300">
                     {project.category}
                   </div>
@@ -171,17 +171,26 @@ export const Projects: React.FC = () => {
                 </button>
 
                 <div className="flex items-center gap-2">
-                  {project.githubUrl && (
+                  {project.githubUrl ? (
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noreferrer"
                       className="p-2 rounded-lg bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-cyan-400 transition-colors"
-                      aria-label={`${project.title} GitHub repository`}
+                      aria-label={`${project.title} GitHub repository link`}
+                      title="View GitHub Repository"
                     >
                       <Github className="w-4 h-4" />
                     </a>
+                  ) : (
+                    <span
+                      className="p-2 rounded-lg bg-slate-900/50 border border-dashed border-slate-700 text-slate-500 cursor-help"
+                      title="Repository link can be configured in src/data/portfolioData.ts"
+                    >
+                      <FolderGit2 className="w-4 h-4" />
+                    </span>
                   )}
+
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
